@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+// eslint-disable-next-line
+const title = "React";
+const welcome = {
+  greeting: "Hey",
+  title: "React and React-Native",
+};
+
+const useFunction = (param) => param;
+const element = <p>Hello again!</p>;
+const myarray = [<p>Hello</p>, <p>World</p>, <p>Again!!!!!!</p>, 4, 5, 6];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello {title} World</h1>
+      <h2>
+        {welcome.greeting} {welcome.title}
+      </h2>
+      <h3>{useFunction("myFunction")}</h3>
+      <h4>{element}</h4>
+      <div>{myarray}</div>
+
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
     </div>
   );
 }
