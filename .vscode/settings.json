@@ -1,3 +1,7 @@
 {
-    "deno.enable": false
+    "deno.enable": false,
+    "dashboard.customCss": "",
+    "dashboard.customProjectPathColor": "",
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true
 }

@@ -1,24 +1,15 @@
 import React from "react";
-import { list } from "../list";
 
-function List() {
-  return (
-    <div>
-      {list
-        .filter((item) => item.points > 48)
-        .map((filteredItem) => (
-          <div key={filteredItem.objectID} id={filteredItem.objectID}>
-            <span>
-              Tech:
-              <a href={filteredItem.url}>{filteredItem.title} </a>
-            </span>
-            <span>Author: {filteredItem.author} </span>
-            <span>Num of comments: {filteredItem.num_comments} </span>
-            <span>Points: {filteredItem.points} </span>
-          </div>
-        ))}
+const List = (props) =>
+  props.list.map((item) => (
+    <div key={item.objectID}>
+      <span>
+        <a href={item.url}>{item.title}</a>
+      </span>
+      <span>{item.author}</span>
+      <span>{item.num_comments}</span>
+      <span>{item.points}</span>
     </div>
-  );
-}
+  ));
 
 export default List;
