@@ -6,18 +6,30 @@ import Header from "./components/Header";
 import { list } from "./list";
 
 function App() {
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem("search") || "Bitwolf"
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("search", searchTerm);
+  }, [searchTerm]);
+
   const handleSearch = (event) => {
-    console.log(event.target.value);
+    setSearchTerm(event.target.value);
   };
+
+  const searchedStories = list.filter((article) =>
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
       <Header />
-      <Search onSearch={handleSearch} />
+      <Search search={searchTerm} onSearch={handleSearch} />
 
       <hr />
 
-      <List list={list} />
+      <List list={searchedStories} />
     </div>
   );
 }
